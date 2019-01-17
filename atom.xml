@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://0bugs.xyz/"/>
+  <link href="https://blog.0bug.xyz/"/>
   <updated>2018-12-03T03:58:02.000Z</updated>
-  <id>https://0bugs.xyz/</id>
+  <id>https://blog.0bug.xyz/</id>
   
   <author>
     <name>Howard Feng</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title></title>
-    <link href="https://0bugs.xyz/2019/01/17/%E5%A4%A9%E6%9C%9D%E5%A4%87%E6%A1%88%E5%88%B6/"/>
-    <id>https://0bugs.xyz/2019/01/17/天朝备案制/</id>
+    <link href="https://blog.0bug.xyz/2019/01/17/%E5%A4%A9%E6%9C%9D%E5%A4%87%E6%A1%88%E5%88%B6/"/>
+    <id>https://blog.0bug.xyz/2019/01/17/天朝备案制/</id>
     <published>2019-01-17T15:29:22.240Z</published>
     <updated>2018-12-03T03:58:02.000Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title></title>
-    <link href="https://0bugs.xyz/2019/01/17/linux%E6%8A%98%E8%85%BE%E8%AE%B0/"/>
-    <id>https://0bugs.xyz/2019/01/17/linux折腾记/</id>
+    <link href="https://blog.0bug.xyz/2019/01/17/linux%E6%8A%98%E8%85%BE%E8%AE%B0/"/>
+    <id>https://blog.0bug.xyz/2019/01/17/linux折腾记/</id>
     <published>2019-01-17T15:29:22.228Z</published>
     <updated>2019-01-17T15:07:20.000Z</updated>
     
@@ -60,8 +60,8 @@
   
   <entry>
     <title>PHP使用PDO连接Oracle</title>
-    <link href="https://0bugs.xyz/2018/10/16/phpToOracle/"/>
-    <id>https://0bugs.xyz/2018/10/16/phpToOracle/</id>
+    <link href="https://blog.0bug.xyz/2018/10/16/phpToOracle/"/>
+    <id>https://blog.0bug.xyz/2018/10/16/phpToOracle/</id>
     <published>2018-10-16T09:00:00.000Z</published>
     <updated>2018-10-17T16:48:32.000Z</updated>
     
@@ -74,16 +74,16 @@
     </summary>
     
     
-      <category term="PHP" scheme="https://0bugs.xyz/tags/PHP/"/>
+      <category term="PHP" scheme="https://blog.0bug.xyz/tags/PHP/"/>
     
-      <category term="Oracle" scheme="https://0bugs.xyz/tags/Oracle/"/>
+      <category term="Oracle" scheme="https://blog.0bug.xyz/tags/Oracle/"/>
     
   </entry>
   
   <entry>
     <title>权限管理与密码破解</title>
-    <link href="https://0bugs.xyz/2018/01/20/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B8%8E%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3/"/>
-    <id>https://0bugs.xyz/2018/01/20/权限管理与密码破解/</id>
+    <link href="https://blog.0bug.xyz/2018/01/20/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B8%8E%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3/"/>
+    <id>https://blog.0bug.xyz/2018/01/20/权限管理与密码破解/</id>
     <published>2018-01-20T08:00:00.000Z</published>
     <updated>2018-10-15T20:24:21.000Z</updated>
     
@@ -103,14 +103,14 @@
     </summary>
     
     
-      <category term="权限管理" scheme="https://0bugs.xyz/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
+      <category term="权限管理" scheme="https://blog.0bug.xyz/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>网络踩点、路由信息探测</title>
-    <link href="https://0bugs.xyz/2018/01/18/%E7%BD%91%E7%BB%9C%E8%B8%A9%E7%82%B9/"/>
-    <id>https://0bugs.xyz/2018/01/18/网络踩点/</id>
+    <link href="https://blog.0bug.xyz/2018/01/18/%E7%BD%91%E7%BB%9C%E8%B8%A9%E7%82%B9/"/>
+    <id>https://blog.0bug.xyz/2018/01/18/网络踩点/</id>
     <published>2018-01-18T06:00:00.000Z</published>
     <updated>2018-10-15T20:24:41.000Z</updated>
     
@@ -127,14 +127,14 @@
     </summary>
     
     
-      <category term="网络踩点" scheme="https://0bugs.xyz/tags/%E7%BD%91%E7%BB%9C%E8%B8%A9%E7%82%B9/"/>
+      <category term="网络踩点" scheme="https://blog.0bug.xyz/tags/%E7%BD%91%E7%BB%9C%E8%B8%A9%E7%82%B9/"/>
     
   </entry>
   
   <entry>
     <title>Linux日志删除与恢复</title>
-    <link href="https://0bugs.xyz/2018/01/17/Linux%E6%97%A5%E5%BF%97%E6%81%A2%E5%A4%8D/"/>
-    <id>https://0bugs.xyz/2018/01/17/Linux日志恢复/</id>
+    <link href="https://blog.0bug.xyz/2018/01/17/Linux%E6%97%A5%E5%BF%97%E6%81%A2%E5%A4%8D/"/>
+    <id>https://blog.0bug.xyz/2018/01/17/Linux日志恢复/</id>
     <published>2018-01-17T08:00:00.000Z</published>
     <updated>2018-10-15T20:25:08.000Z</updated>
     
@@ -150,14 +150,14 @@
     </summary>
     
     
-      <category term="Linux" scheme="https://0bugs.xyz/tags/Linux/"/>
+      <category term="Linux" scheme="https://blog.0bug.xyz/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>数据库安全</title>
-    <link href="https://0bugs.xyz/2018/01/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8/"/>
-    <id>https://0bugs.xyz/2018/01/16/数据库安全/</id>
+    <link href="https://blog.0bug.xyz/2018/01/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8/"/>
+    <id>https://blog.0bug.xyz/2018/01/16/数据库安全/</id>
     <published>2018-01-16T04:00:00.000Z</published>
     <updated>2018-10-15T20:25:23.000Z</updated>
     
@@ -172,37 +172,16 @@
     </summary>
     
     
-      <category term="数据库" scheme="https://0bugs.xyz/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://blog.0bug.xyz/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
-      <category term="安全" scheme="https://0bugs.xyz/tags/%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Web安全相关</title>
-    <link href="https://0bugs.xyz/2018/01/15/Web%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3/"/>
-    <id>https://0bugs.xyz/2018/01/15/Web安全相关/</id>
-    <published>2018-01-15T04:00:00.000Z</published>
-    <updated>2018-10-15T20:25:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Web安全相关"><a href="#Web安全相关" class="headerlink" title="Web安全相关"></a>Web安全相关</h2><h4 id="主机发现-使用nmap"><a href="#主机发现-使用nmap" class="headerlink" title="主机发现(使用nmap)"></a>主机发现(使用nmap)</h4><blockquote><p>可以用于探测局域网内的活动主机<br>  <a id="more"></a><br>-sL<br>List Scan 列表扫描，仅将指定的目标的IP列举出来，不进行主机发现。  </p></blockquote><p>-sn   </p><blockquote><p>Ping Scan 只进行主机发现，不进行端口扫描。</p></blockquote><h4 id="端口扫描-使用nmap"><a href="#端口扫描-使用nmap" class="headerlink" title="端口扫描(使用nmap)"></a>端口扫描(使用nmap)</h4><p>-sS </p><blockquote><p>TCP SYN扫描 被称为半开放扫描， 因为它不打开一个完全的TCP连接</p></blockquote><p>-sT </p><blockquote><p>TCP connect() 该扫描方式扫描速度比较慢，而且由于建立完整的TCP连接会在目标机上留下记录信息，不够隐蔽。在SYN无法使用时使用此选项</p></blockquote><p>-sU</p><blockquote><p>UDP端口扫描 </p></blockquote><p>-sA </p><blockquote><p>TCP ACK扫描 该方式只能用于确定防火墙是否屏蔽某个端口，可以辅助TCP SYN的方式来判断目标主机防火墙的状况。</p></blockquote><p>-sN; -sF; -sX </p><blockquote><p>TCP Null,FIN,Xmas扫描 这三种扫描方式被称为秘密扫描（Stealthy Scan），因为相对比较隐蔽。</p></blockquote><p>使用举例：</p><p>nmap –sS –sU –T4 –top-ports 300 192.168.1.100</p><blockquote><p>参数-sS表示使用TCP SYN方式扫描TCP端口；-sU表示扫描UDP端口；-T4表示时间级别配置4级；–top-ports 300表示扫描最有可能开放的300个端口（TCP和UDP分别有300个端口）。</p></blockquote><h4 id="版本侦测-使用nmap"><a href="#版本侦测-使用nmap" class="headerlink" title="版本侦测(使用nmap)"></a>版本侦测(使用nmap)</h4><p>-sV</p><blockquote><p>指定让Nmap进行版本侦测 </p></blockquote><h4 id="OS侦测-使用nmap"><a href="#OS侦测-使用nmap" class="headerlink" title="OS侦测(使用nmap)"></a>OS侦测(使用nmap)</h4><p>-O</p><blockquote><p>指定让Nmap进行OS侦测。</p></blockquote><p><strong>nmap 的其他用法</strong></p><blockquote><p><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="noopener">Nmap扫描原理与用法</a> <a href="http://www.freebuf.com/articles/network/32302.html" target="_blank" rel="noopener">Nmap简介(一)</a>  <a href="https://nmap.org/man/zh/index.html" target="_blank" rel="noopener">官方文档</a></p></blockquote><h4 id="Web漏洞扫描器-使用Nikto2"><a href="#Web漏洞扫描器-使用Nikto2" class="headerlink" title="Web漏洞扫描器(使用Nikto2)"></a>Web漏洞扫描器(使用Nikto2)</h4><blockquote><p>Nikto2开发语言为Perl，它可以扫描指定主机的web类型、主机名、特定目录、cookie、特定cgi 漏洞、xss漏洞、sql注入漏洞、返回主机允许的http 方法等安全问题</p></blockquote><p>-h</p><blockquote><p>指定主机 </p></blockquote><p>-p</p><blockquote><p>指定端口</p></blockquote><p>-o</p><blockquote><p>保存扫描结果 可生成html格式文档，易于查看</p></blockquote><h4 id="FTP弱口令扫描-使用hydra-亦可用来破解ssh"><a href="#FTP弱口令扫描-使用hydra-亦可用来破解ssh" class="headerlink" title="FTP弱口令扫描(使用hydra,亦可用来破解ssh)"></a>FTP弱口令扫描(使用hydra,亦可用来破解ssh)</h4><blockquote><p>该工具功能强大,支持几乎所有协议的在线密码破解,https,pop3,http-proxy,ftp,post、get方式提交，web登录均可破解。</p></blockquote><p>-L [FILE]</p><blockquote><p>指定用户名字典</p></blockquote><p>-P [FILE]</p><blockquote><p>指定密码字典</p></blockquote><p>-t [TASKS]</p><blockquote><p>同时运行的线程数，默认为16</p></blockquote><p>-v / -V</p><blockquote><p>显示详细过程</p></blockquote><p>使用举例：</p><p>hydra -L users.txt -P password.txt -t 1 -vV  192.168.1.104 ssh</p><h4 id="连通性探测"><a href="#连通性探测" class="headerlink" title="连通性探测"></a>连通性探测</h4><p><strong>使用PING判断TCP/IP故障</strong></p><p>Ping 127.0.0.1：</p><blockquote><p>127.0.0.1是本地循环地址，如果本地址无法Ping通，则表明本地机TCP/IP协议不能正常工作。</p></blockquote><p>Ping本机的IP地址：</p><blockquote><p>用IPConfig查看本机IP，然后Ping该IP，通则表明网络适配器（网卡或MODEM）工作正常，不通则是网络适配器出现故障。</p></blockquote><p>Ping同网段计算机的IP：</p><blockquote><p>Ping一台同网段计算机的IP，不通则表明网络线路出现故障；若网络中还包含有路由器，则应先Ping路由器在本网段端口的IP，不通则此段线路有问题；通则再PING路由器在目标计算机所在网段的端口IP，不通则是路由出现故障；通则再Ping目的机IP地址。</p></blockquote><p>Ping网址：</p><blockquote><p>若要检测一个带DNS服务的网络，在上一步Ping通了目标计算机的IP地址后，仍无法连接到该机，则可PING该机的网络名，比如Ping <a href="http://www.sina.com.cn，正常情况下会出现该网址所指向的IP，这表明本机的DNS设置正确而且DNS服务器工作正常，反之就可能是其中之一出现了故障；" target="_blank" rel="noopener">www.sina.com.cn，正常情况下会出现该网址所指向的IP，这表明本机的DNS设置正确而且DNS服务器工作正常，反之就可能是其中之一出现了故障；</a></p></blockquote><p>-t</p><blockquote><p>win下不停地ping</p></blockquote><p>-n</p><blockquote><p>发送指定的Echo数据包数。在默认情况下，一般都只发送四个数据包，通过这个命令可以自己定义发送的个数，对衡量网络速度很有帮助。</p></blockquote><p>-l</p><blockquote><p>定义echo数据包大小,在默认的情况下windows的ping发送的数据包大小为32byt，我们也可以自己定义它的大小，但最大只能发送65500byte。<br>配合-t使用并且多台计算机可以形成很大攻击~</p></blockquote><p>-r</p><blockquote><p>通过此参数就可以记录经过的路由的个数，最大为9个，也就是说只能跟踪到9个路由器</p></blockquote><p><strong>使用ipconfig查看网络配置</strong></p><p>/?：</p><blockquote><p>显示ipconfig的格式和参数的说明 ；</p></blockquote><p>/all</p><blockquote><p>显示本机TCP/IP配置的详细信息；</p></blockquote><p>/flushdns</p><blockquote><p>清除本地DNS缓存内容；</p></blockquote><p>/displaydns</p><blockquote><p>显示本地DNS内容；</p></blockquote><p><strong>使用netstat查看主机与因特网的连接</strong></p><blockquote><p>参考 <a href="https://linux.cn/article-2434-1.html" target="_blank" rel="noopener">netstat 的10个基本用法</a></p></blockquote><p>-a</p><blockquote><p>列出 tcp, udp 和 unix 协议下所有套接字的所有连接。</p></blockquote><p>-t/-u</p><blockquote><p>只列出 TCP 或 UDP 协议的连接</p></blockquote><p>-n</p><blockquote><p>禁用反向解析，加快速度</p></blockquote><p>-l</p><blockquote><p>只列出监听中的连接</p></blockquote><p>-p</p><blockquote><p>获取进程名、进程号以及用户 ID,-ep 选项可以同时查看进程名和用户名。</p></blockquote><p>-i</p><blockquote><p>打印网络接口信息 -ei 可以输出用户友好的信息。</p></blockquote><p>grep</p><blockquote><p>可以查看服务是否在运行</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Web安全相关&quot;&gt;&lt;a href=&quot;#Web安全相关&quot; class=&quot;headerlink&quot; title=&quot;Web安全相关&quot;&gt;&lt;/a&gt;Web安全相关&lt;/h2&gt;&lt;h4 id=&quot;主机发现-使用nmap&quot;&gt;&lt;a href=&quot;#主机发现-使用nmap&quot; class=&quot;headerlink&quot; title=&quot;主机发现(使用nmap)&quot;&gt;&lt;/a&gt;主机发现(使用nmap)&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;可以用于探测局域网内的活动主机&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Web安全" scheme="https://0bugs.xyz/tags/Web%E5%AE%89%E5%85%A8/"/>
+      <category term="安全" scheme="https://blog.0bug.xyz/tags/%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
   <entry>
     <title>一些密码算法</title>
-    <link href="https://0bugs.xyz/2018/01/15/%E4%B8%80%E4%BA%9B%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/"/>
-    <id>https://0bugs.xyz/2018/01/15/一些密码算法/</id>
+    <link href="https://blog.0bug.xyz/2018/01/15/%E4%B8%80%E4%BA%9B%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95/"/>
+    <id>https://blog.0bug.xyz/2018/01/15/一些密码算法/</id>
     <published>2018-01-15T04:00:00.000Z</published>
     <updated>2018-10-15T20:25:42.000Z</updated>
     
@@ -216,14 +195,35 @@
     </summary>
     
     
-      <category term="加密算法" scheme="https://0bugs.xyz/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
+      <category term="加密算法" scheme="https://blog.0bug.xyz/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web安全相关</title>
+    <link href="https://blog.0bug.xyz/2018/01/15/Web%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3/"/>
+    <id>https://blog.0bug.xyz/2018/01/15/Web安全相关/</id>
+    <published>2018-01-15T04:00:00.000Z</published>
+    <updated>2018-10-15T20:25:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Web安全相关"><a href="#Web安全相关" class="headerlink" title="Web安全相关"></a>Web安全相关</h2><h4 id="主机发现-使用nmap"><a href="#主机发现-使用nmap" class="headerlink" title="主机发现(使用nmap)"></a>主机发现(使用nmap)</h4><blockquote><p>可以用于探测局域网内的活动主机<br>  <a id="more"></a><br>-sL<br>List Scan 列表扫描，仅将指定的目标的IP列举出来，不进行主机发现。  </p></blockquote><p>-sn   </p><blockquote><p>Ping Scan 只进行主机发现，不进行端口扫描。</p></blockquote><h4 id="端口扫描-使用nmap"><a href="#端口扫描-使用nmap" class="headerlink" title="端口扫描(使用nmap)"></a>端口扫描(使用nmap)</h4><p>-sS </p><blockquote><p>TCP SYN扫描 被称为半开放扫描， 因为它不打开一个完全的TCP连接</p></blockquote><p>-sT </p><blockquote><p>TCP connect() 该扫描方式扫描速度比较慢，而且由于建立完整的TCP连接会在目标机上留下记录信息，不够隐蔽。在SYN无法使用时使用此选项</p></blockquote><p>-sU</p><blockquote><p>UDP端口扫描 </p></blockquote><p>-sA </p><blockquote><p>TCP ACK扫描 该方式只能用于确定防火墙是否屏蔽某个端口，可以辅助TCP SYN的方式来判断目标主机防火墙的状况。</p></blockquote><p>-sN; -sF; -sX </p><blockquote><p>TCP Null,FIN,Xmas扫描 这三种扫描方式被称为秘密扫描（Stealthy Scan），因为相对比较隐蔽。</p></blockquote><p>使用举例：</p><p>nmap –sS –sU –T4 –top-ports 300 192.168.1.100</p><blockquote><p>参数-sS表示使用TCP SYN方式扫描TCP端口；-sU表示扫描UDP端口；-T4表示时间级别配置4级；–top-ports 300表示扫描最有可能开放的300个端口（TCP和UDP分别有300个端口）。</p></blockquote><h4 id="版本侦测-使用nmap"><a href="#版本侦测-使用nmap" class="headerlink" title="版本侦测(使用nmap)"></a>版本侦测(使用nmap)</h4><p>-sV</p><blockquote><p>指定让Nmap进行版本侦测 </p></blockquote><h4 id="OS侦测-使用nmap"><a href="#OS侦测-使用nmap" class="headerlink" title="OS侦测(使用nmap)"></a>OS侦测(使用nmap)</h4><p>-O</p><blockquote><p>指定让Nmap进行OS侦测。</p></blockquote><p><strong>nmap 的其他用法</strong></p><blockquote><p><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="noopener">Nmap扫描原理与用法</a> <a href="http://www.freebuf.com/articles/network/32302.html" target="_blank" rel="noopener">Nmap简介(一)</a>  <a href="https://nmap.org/man/zh/index.html" target="_blank" rel="noopener">官方文档</a></p></blockquote><h4 id="Web漏洞扫描器-使用Nikto2"><a href="#Web漏洞扫描器-使用Nikto2" class="headerlink" title="Web漏洞扫描器(使用Nikto2)"></a>Web漏洞扫描器(使用Nikto2)</h4><blockquote><p>Nikto2开发语言为Perl，它可以扫描指定主机的web类型、主机名、特定目录、cookie、特定cgi 漏洞、xss漏洞、sql注入漏洞、返回主机允许的http 方法等安全问题</p></blockquote><p>-h</p><blockquote><p>指定主机 </p></blockquote><p>-p</p><blockquote><p>指定端口</p></blockquote><p>-o</p><blockquote><p>保存扫描结果 可生成html格式文档，易于查看</p></blockquote><h4 id="FTP弱口令扫描-使用hydra-亦可用来破解ssh"><a href="#FTP弱口令扫描-使用hydra-亦可用来破解ssh" class="headerlink" title="FTP弱口令扫描(使用hydra,亦可用来破解ssh)"></a>FTP弱口令扫描(使用hydra,亦可用来破解ssh)</h4><blockquote><p>该工具功能强大,支持几乎所有协议的在线密码破解,https,pop3,http-proxy,ftp,post、get方式提交，web登录均可破解。</p></blockquote><p>-L [FILE]</p><blockquote><p>指定用户名字典</p></blockquote><p>-P [FILE]</p><blockquote><p>指定密码字典</p></blockquote><p>-t [TASKS]</p><blockquote><p>同时运行的线程数，默认为16</p></blockquote><p>-v / -V</p><blockquote><p>显示详细过程</p></blockquote><p>使用举例：</p><p>hydra -L users.txt -P password.txt -t 1 -vV  192.168.1.104 ssh</p><h4 id="连通性探测"><a href="#连通性探测" class="headerlink" title="连通性探测"></a>连通性探测</h4><p><strong>使用PING判断TCP/IP故障</strong></p><p>Ping 127.0.0.1：</p><blockquote><p>127.0.0.1是本地循环地址，如果本地址无法Ping通，则表明本地机TCP/IP协议不能正常工作。</p></blockquote><p>Ping本机的IP地址：</p><blockquote><p>用IPConfig查看本机IP，然后Ping该IP，通则表明网络适配器（网卡或MODEM）工作正常，不通则是网络适配器出现故障。</p></blockquote><p>Ping同网段计算机的IP：</p><blockquote><p>Ping一台同网段计算机的IP，不通则表明网络线路出现故障；若网络中还包含有路由器，则应先Ping路由器在本网段端口的IP，不通则此段线路有问题；通则再PING路由器在目标计算机所在网段的端口IP，不通则是路由出现故障；通则再Ping目的机IP地址。</p></blockquote><p>Ping网址：</p><blockquote><p>若要检测一个带DNS服务的网络，在上一步Ping通了目标计算机的IP地址后，仍无法连接到该机，则可PING该机的网络名，比如Ping <a href="http://www.sina.com.cn，正常情况下会出现该网址所指向的IP，这表明本机的DNS设置正确而且DNS服务器工作正常，反之就可能是其中之一出现了故障；" target="_blank" rel="noopener">www.sina.com.cn，正常情况下会出现该网址所指向的IP，这表明本机的DNS设置正确而且DNS服务器工作正常，反之就可能是其中之一出现了故障；</a></p></blockquote><p>-t</p><blockquote><p>win下不停地ping</p></blockquote><p>-n</p><blockquote><p>发送指定的Echo数据包数。在默认情况下，一般都只发送四个数据包，通过这个命令可以自己定义发送的个数，对衡量网络速度很有帮助。</p></blockquote><p>-l</p><blockquote><p>定义echo数据包大小,在默认的情况下windows的ping发送的数据包大小为32byt，我们也可以自己定义它的大小，但最大只能发送65500byte。<br>配合-t使用并且多台计算机可以形成很大攻击~</p></blockquote><p>-r</p><blockquote><p>通过此参数就可以记录经过的路由的个数，最大为9个，也就是说只能跟踪到9个路由器</p></blockquote><p><strong>使用ipconfig查看网络配置</strong></p><p>/?：</p><blockquote><p>显示ipconfig的格式和参数的说明 ；</p></blockquote><p>/all</p><blockquote><p>显示本机TCP/IP配置的详细信息；</p></blockquote><p>/flushdns</p><blockquote><p>清除本地DNS缓存内容；</p></blockquote><p>/displaydns</p><blockquote><p>显示本地DNS内容；</p></blockquote><p><strong>使用netstat查看主机与因特网的连接</strong></p><blockquote><p>参考 <a href="https://linux.cn/article-2434-1.html" target="_blank" rel="noopener">netstat 的10个基本用法</a></p></blockquote><p>-a</p><blockquote><p>列出 tcp, udp 和 unix 协议下所有套接字的所有连接。</p></blockquote><p>-t/-u</p><blockquote><p>只列出 TCP 或 UDP 协议的连接</p></blockquote><p>-n</p><blockquote><p>禁用反向解析，加快速度</p></blockquote><p>-l</p><blockquote><p>只列出监听中的连接</p></blockquote><p>-p</p><blockquote><p>获取进程名、进程号以及用户 ID,-ep 选项可以同时查看进程名和用户名。</p></blockquote><p>-i</p><blockquote><p>打印网络接口信息 -ei 可以输出用户友好的信息。</p></blockquote><p>grep</p><blockquote><p>可以查看服务是否在运行</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Web安全相关&quot;&gt;&lt;a href=&quot;#Web安全相关&quot; class=&quot;headerlink&quot; title=&quot;Web安全相关&quot;&gt;&lt;/a&gt;Web安全相关&lt;/h2&gt;&lt;h4 id=&quot;主机发现-使用nmap&quot;&gt;&lt;a href=&quot;#主机发现-使用nmap&quot; class=&quot;headerlink&quot; title=&quot;主机发现(使用nmap)&quot;&gt;&lt;/a&gt;主机发现(使用nmap)&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;可以用于探测局域网内的活动主机&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Web安全" scheme="https://blog.0bug.xyz/tags/Web%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
   <entry>
     <title>python笔记（一）</title>
-    <link href="https://0bugs.xyz/2018/01/14/python%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>https://0bugs.xyz/2018/01/14/python笔记（一）/</id>
+    <link href="https://blog.0bug.xyz/2018/01/14/python%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://blog.0bug.xyz/2018/01/14/python笔记（一）/</id>
     <published>2018-01-14T07:00:00.000Z</published>
     <updated>2018-10-15T20:25:50.000Z</updated>
     
@@ -243,14 +243,14 @@
     </summary>
     
     
-      <category term="python" scheme="https://0bugs.xyz/tags/python/"/>
+      <category term="python" scheme="https://blog.0bug.xyz/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>蓝盾训练记录2</title>
-    <link href="https://0bugs.xyz/2018/01/14/%E8%93%9D%E7%9B%BE%E8%AE%AD%E7%BB%83%E8%AE%B0%E5%BD%952/"/>
-    <id>https://0bugs.xyz/2018/01/14/蓝盾训练记录2/</id>
+    <link href="https://blog.0bug.xyz/2018/01/14/%E8%93%9D%E7%9B%BE%E8%AE%AD%E7%BB%83%E8%AE%B0%E5%BD%952/"/>
+    <id>https://blog.0bug.xyz/2018/01/14/蓝盾训练记录2/</id>
     <published>2018-01-14T02:00:00.000Z</published>
     <updated>2018-10-15T20:25:57.000Z</updated>
     
@@ -266,14 +266,14 @@
     </summary>
     
     
-      <category term="信息安全" scheme="https://0bugs.xyz/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
+      <category term="信息安全" scheme="https://blog.0bug.xyz/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
   <entry>
     <title>蓝盾训练记录</title>
-    <link href="https://0bugs.xyz/2018/01/13/%E8%93%9D%E7%9B%BE%E8%AE%AD%E7%BB%83%E8%AE%B0%E5%BD%95/"/>
-    <id>https://0bugs.xyz/2018/01/13/蓝盾训练记录/</id>
+    <link href="https://blog.0bug.xyz/2018/01/13/%E8%93%9D%E7%9B%BE%E8%AE%AD%E7%BB%83%E8%AE%B0%E5%BD%95/"/>
+    <id>https://blog.0bug.xyz/2018/01/13/蓝盾训练记录/</id>
     <published>2018-01-13T12:00:00.000Z</published>
     <updated>2018-10-15T20:26:04.000Z</updated>
     
@@ -290,14 +290,14 @@
     </summary>
     
     
-      <category term="信息安全" scheme="https://0bugs.xyz/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
+      <category term="信息安全" scheme="https://blog.0bug.xyz/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
   <entry>
     <title>非接触式IC卡破解</title>
-    <link href="https://0bugs.xyz/2017/07/08/%E9%9D%9E%E6%8E%A5%E8%A7%A6%E5%BC%8FIC%E5%8D%A1%E7%A0%B4%E8%A7%A3/"/>
-    <id>https://0bugs.xyz/2017/07/08/非接触式IC卡破解/</id>
+    <link href="https://blog.0bug.xyz/2017/07/08/%E9%9D%9E%E6%8E%A5%E8%A7%A6%E5%BC%8FIC%E5%8D%A1%E7%A0%B4%E8%A7%A3/"/>
+    <id>https://blog.0bug.xyz/2017/07/08/非接触式IC卡破解/</id>
     <published>2017-07-07T17:00:00.000Z</published>
     <updated>2018-10-16T09:06:49.000Z</updated>
     
@@ -310,9 +310,9 @@
     </summary>
     
     
-      <category term="硬件" scheme="https://0bugs.xyz/tags/%E7%A1%AC%E4%BB%B6/"/>
+      <category term="硬件" scheme="https://blog.0bug.xyz/tags/%E7%A1%AC%E4%BB%B6/"/>
     
-      <category term="IC" scheme="https://0bugs.xyz/tags/IC/"/>
+      <category term="IC" scheme="https://blog.0bug.xyz/tags/IC/"/>
     
   </entry>
   
