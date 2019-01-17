@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Web安全相关 | Howard&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Web安全相关主机发现(使用nmap) 可以用于探测局域网内的活动主机">
+<meta name="keywords" content="Web安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web安全相关">
+<meta property="og:url" content="https://0bugs.xyz/2018/01/15/Web安全相关/index.html">
+<meta property="og:site_name" content="Howard&#39;s Blog">
+<meta property="og:description" content="Web安全相关主机发现(使用nmap) 可以用于探测局域网内的活动主机">
+<meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2018-10-15T20:25:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web安全相关">
+<meta name="twitter:description" content="Web安全相关主机发现(使用nmap) 可以用于探测局域网内的活动主机">
+  
+    <link rel="alternative" href="/atom.xml" title="Howard&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head></html>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Howard&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <!-- <a id="nav-search-btn" class="nav-icon" title="Search"></a> -->
+      </nav>
+      <!-- <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="0bugs.xyz">
+        </form>
+      </div> -->
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-Web安全相关" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/15/Web安全相关/" class="article-date">
+  <time datetime="2018-01-15T04:00:00.000Z" itemprop="datePublished">2018-01-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Web安全相关
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Web安全相关"><a href="#Web安全相关" class="headerlink" title="Web安全相关"></a>Web安全相关</h2><h4 id="主机发现-使用nmap"><a href="#主机发现-使用nmap" class="headerlink" title="主机发现(使用nmap)"></a>主机发现(使用nmap)</h4><blockquote>
+<p>可以用于探测局域网内的活动主机<br>  <a id="more"></a><br>-sL<br>List Scan 列表扫描，仅将指定的目标的IP列举出来，不进行主机发现。  </p>
+</blockquote>
+<p>-sn   </p>
+<blockquote>
+<p>Ping Scan 只进行主机发现，不进行端口扫描。</p>
+</blockquote>
+<h4 id="端口扫描-使用nmap"><a href="#端口扫描-使用nmap" class="headerlink" title="端口扫描(使用nmap)"></a>端口扫描(使用nmap)</h4><p>-sS </p>
+<blockquote>
+<p>TCP SYN扫描 被称为半开放扫描， 因为它不打开一个完全的TCP连接</p>
+</blockquote>
+<p>-sT </p>
+<blockquote>
+<p>TCP connect() 该扫描方式扫描速度比较慢，而且由于建立完整的TCP连接会在目标机上留下记录信息，不够隐蔽。在SYN无法使用时使用此选项</p>
+</blockquote>
+<p>-sU</p>
+<blockquote>
+<p>UDP端口扫描 </p>
+</blockquote>
+<p>-sA </p>
+<blockquote>
+<p>TCP ACK扫描 该方式只能用于确定防火墙是否屏蔽某个端口，可以辅助TCP SYN的方式来判断目标主机防火墙的状况。</p>
+</blockquote>
+<p>-sN; -sF; -sX </p>
+<blockquote>
+<p>TCP Null,FIN,Xmas扫描 这三种扫描方式被称为秘密扫描（Stealthy Scan），因为相对比较隐蔽。</p>
+</blockquote>
+<p>使用举例：</p>
+<p>nmap –sS –sU –T4 –top-ports 300 192.168.1.100</p>
+<blockquote>
+<p>参数-sS表示使用TCP SYN方式扫描TCP端口；-sU表示扫描UDP端口；-T4表示时间级别配置4级；–top-ports 300表示扫描最有可能开放的300个端口（TCP和UDP分别有300个端口）。</p>
+</blockquote>
+<h4 id="版本侦测-使用nmap"><a href="#版本侦测-使用nmap" class="headerlink" title="版本侦测(使用nmap)"></a>版本侦测(使用nmap)</h4><p>-sV</p>
+<blockquote>
+<p>指定让Nmap进行版本侦测 </p>
+</blockquote>
+<h4 id="OS侦测-使用nmap"><a href="#OS侦测-使用nmap" class="headerlink" title="OS侦测(使用nmap)"></a>OS侦测(使用nmap)</h4><p>-O</p>
+<blockquote>
+<p>指定让Nmap进行OS侦测。</p>
+</blockquote>
+<p><strong>nmap 的其他用法</strong></p>
+<blockquote>
+<p><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="noopener">Nmap扫描原理与用法</a> <a href="http://www.freebuf.com/articles/network/32302.html" target="_blank" rel="noopener">Nmap简介(一)</a>  <a href="https://nmap.org/man/zh/index.html" target="_blank" rel="noopener">官方文档</a></p>
+</blockquote>
+<h4 id="Web漏洞扫描器-使用Nikto2"><a href="#Web漏洞扫描器-使用Nikto2" class="headerlink" title="Web漏洞扫描器(使用Nikto2)"></a>Web漏洞扫描器(使用Nikto2)</h4><blockquote>
+<p>Nikto2开发语言为Perl，它可以扫描指定主机的web类型、主机名、特定目录、cookie、特定cgi 漏洞、xss漏洞、sql注入漏洞、返回主机允许的http 方法等安全问题</p>
+</blockquote>
+<p>-h</p>
+<blockquote>
+<p>指定主机 </p>
+</blockquote>
+<p>-p</p>
+<blockquote>
+<p>指定端口</p>
+</blockquote>
+<p>-o</p>
+<blockquote>
+<p>保存扫描结果 可生成html格式文档，易于查看</p>
+</blockquote>
+<h4 id="FTP弱口令扫描-使用hydra-亦可用来破解ssh"><a href="#FTP弱口令扫描-使用hydra-亦可用来破解ssh" class="headerlink" title="FTP弱口令扫描(使用hydra,亦可用来破解ssh)"></a>FTP弱口令扫描(使用hydra,亦可用来破解ssh)</h4><blockquote>
+<p>该工具功能强大,支持几乎所有协议的在线密码破解,https,pop3,http-proxy,ftp,post、get方式提交，web登录均可破解。</p>
+</blockquote>
+<p>-L [FILE]</p>
+<blockquote>
+<p>指定用户名字典</p>
+</blockquote>
+<p>-P [FILE]</p>
+<blockquote>
+<p>指定密码字典</p>
+</blockquote>
+<p>-t [TASKS]</p>
+<blockquote>
+<p>同时运行的线程数，默认为16</p>
+</blockquote>
+<p>-v / -V</p>
+<blockquote>
+<p>显示详细过程</p>
+</blockquote>
+<p>使用举例：</p>
+<p>hydra -L users.txt -P password.txt -t 1 -vV  192.168.1.104 ssh</p>
+<h4 id="连通性探测"><a href="#连通性探测" class="headerlink" title="连通性探测"></a>连通性探测</h4><p><strong>使用PING判断TCP/IP故障</strong></p>
+<p>Ping 127.0.0.1：</p>
+<blockquote>
+<p>127.0.0.1是本地循环地址，如果本地址无法Ping通，则表明本地机TCP/IP协议不能正常工作。</p>
+</blockquote>
+<p>Ping本机的IP地址：</p>
+<blockquote>
+<p>用IPConfig查看本机IP，然后Ping该IP，通则表明网络适配器（网卡或MODEM）工作正常，不通则是网络适配器出现故障。</p>
+</blockquote>
+<p>Ping同网段计算机的IP：</p>
+<blockquote>
+<p>Ping一台同网段计算机的IP，不通则表明网络线路出现故障；若网络中还包含有路由器，则应先Ping路由器在本网段端口的IP，不通则此段线路有问题；通则再PING路由器在目标计算机所在网段的端口IP，不通则是路由出现故障；通则再Ping目的机IP地址。</p>
+</blockquote>
+<p>Ping网址：</p>
+<blockquote>
+<p>若要检测一个带DNS服务的网络，在上一步Ping通了目标计算机的IP地址后，仍无法连接到该机，则可PING该机的网络名，比如Ping <a href="http://www.sina.com.cn，正常情况下会出现该网址所指向的IP，这表明本机的DNS设置正确而且DNS服务器工作正常，反之就可能是其中之一出现了故障；" target="_blank" rel="noopener">www.sina.com.cn，正常情况下会出现该网址所指向的IP，这表明本机的DNS设置正确而且DNS服务器工作正常，反之就可能是其中之一出现了故障；</a></p>
+</blockquote>
+<p>-t</p>
+<blockquote>
+<p>win下不停地ping</p>
+</blockquote>
+<p>-n</p>
+<blockquote>
+<p>发送指定的Echo数据包数。在默认情况下，一般都只发送四个数据包，通过这个命令可以自己定义发送的个数，对衡量网络速度很有帮助。</p>
+</blockquote>
+<p>-l</p>
+<blockquote>
+<p>定义echo数据包大小,在默认的情况下windows的ping发送的数据包大小为32byt，我们也可以自己定义它的大小，但最大只能发送65500byte。<br>配合-t使用并且多台计算机可以形成很大攻击~</p>
+</blockquote>
+<p>-r</p>
+<blockquote>
+<p>通过此参数就可以记录经过的路由的个数，最大为9个，也就是说只能跟踪到9个路由器</p>
+</blockquote>
+<p><strong>使用ipconfig查看网络配置</strong></p>
+<p>/?：</p>
+<blockquote>
+<p>显示ipconfig的格式和参数的说明 ；</p>
+</blockquote>
+<p>/all</p>
+<blockquote>
+<p>显示本机TCP/IP配置的详细信息；</p>
+</blockquote>
+<p>/flushdns</p>
+<blockquote>
+<p>清除本地DNS缓存内容；</p>
+</blockquote>
+<p>/displaydns</p>
+<blockquote>
+<p>显示本地DNS内容；</p>
+</blockquote>
+<p><strong>使用netstat查看主机与因特网的连接</strong></p>
+<blockquote>
+<p>参考 <a href="https://linux.cn/article-2434-1.html" target="_blank" rel="noopener">netstat 的10个基本用法</a></p>
+</blockquote>
+<p>-a</p>
+<blockquote>
+<p>列出 tcp, udp 和 unix 协议下所有套接字的所有连接。</p>
+</blockquote>
+<p>-t/-u</p>
+<blockquote>
+<p>只列出 TCP 或 UDP 协议的连接</p>
+</blockquote>
+<p>-n</p>
+<blockquote>
+<p>禁用反向解析，加快速度</p>
+</blockquote>
+<p>-l</p>
+<blockquote>
+<p>只列出监听中的连接</p>
+</blockquote>
+<p>-p</p>
+<blockquote>
+<p>获取进程名、进程号以及用户 ID,-ep 选项可以同时查看进程名和用户名。</p>
+</blockquote>
+<p>-i</p>
+<blockquote>
+<p>打印网络接口信息 -ei 可以输出用户友好的信息。</p>
+</blockquote>
+<p>grep</p>
+<blockquote>
+<p>可以查看服务是否在运行</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://0bugs.xyz/2018/01/15/Web安全相关/" data-id="cjr0rtkcw0003wuoins48g20h" class="article-share-link" data-share="baidu" data-title="Web安全相关">Share</a>
+      
+
+      
+        <a href="https://0bugs.xyz/2018/01/15/Web安全相关/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web安全/">Web安全</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/15/一些密码算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          一些密码算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/14/python笔记（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python笔记（一）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2018/01/15/Web安全相关/" data-title="Web安全相关" data-url="https://0bugs.xyz/2018/01/15/Web安全相关/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IC/">IC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web安全/">Web安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全/">信息安全</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密算法/">加密算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/权限管理/">权限管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/硬件/">硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络踩点/">网络踩点</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Web安全/" style="font-size: 10px;">Web安全</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/信息安全/" style="font-size: 20px;">信息安全</a> <a href="/tags/加密算法/" style="font-size: 10px;">加密算法</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/权限管理/" style="font-size: 10px;">权限管理</a> <a href="/tags/硬件/" style="font-size: 10px;">硬件</a> <a href="/tags/网络踩点/" style="font-size: 10px;">网络踩点</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/17/天朝备案制/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/17/linux折腾记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/16/phpToOracle/">PHP使用PDO连接Oracle</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/20/权限管理与密码破解/">权限管理与密码破解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/18/网络踩点/">网络踩点、路由信息探测</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://www.sky31.com" target="_blank">Sun-e Studio</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Howard Feng<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      <!-- Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a> -->
+       <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备17001505号-1</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

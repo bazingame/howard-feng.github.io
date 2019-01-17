@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>权限管理与密码破解 | Howard&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Linux下权限管理useradd  -d 用户的home目录 -e 用户的过期时间，在此时间以前账号有效，过期后自动失效 -g 指定用户所属的组，指定的组必须已经存在 -m 如用户的起始home目录不存在，即建立 -M 不创建用户起始home目录 -D 显示或修改默认属性">
+<meta name="keywords" content="权限管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="权限管理与密码破解">
+<meta property="og:url" content="https://0bugs.xyz/2018/01/20/权限管理与密码破解/index.html">
+<meta property="og:site_name" content="Howard&#39;s Blog">
+<meta property="og:description" content="Linux下权限管理useradd  -d 用户的home目录 -e 用户的过期时间，在此时间以前账号有效，过期后自动失效 -g 指定用户所属的组，指定的组必须已经存在 -m 如用户的起始home目录不存在，即建立 -M 不创建用户起始home目录 -D 显示或修改默认属性">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://0bugs.xyz/2018/01/20/权限管理与密码破解/权限管理与密码破解/1.jpg">
+<meta property="og:image" content="https://0bugs.xyz/2018/01/20/权限管理与密码破解/权限管理与密码破解/4.jpg">
+<meta property="og:image" content="https://0bugs.xyz/2018/01/20/权限管理与密码破解/权限管理与密码破解/2.jpg">
+<meta property="og:image" content="https://0bugs.xyz/2018/01/20/权限管理与密码破解/权限管理与密码破解/3.jpg">
+<meta property="og:image" content="https://0bugs.xyz/2018/01/20/权限管理与密码破解/权限管理与密码破解/5.jpg">
+<meta property="og:image" content="https://0bugs.xyz/2018/01/20/权限管理与密码破解/权限管理与密码破解/6.jpg">
+<meta property="og:image" content="https://0bugs.xyz/2018/01/20/权限管理与密码破解/权限管理与密码破解/7.jpg">
+<meta property="og:updated_time" content="2018-10-15T20:24:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="权限管理与密码破解">
+<meta name="twitter:description" content="Linux下权限管理useradd  -d 用户的home目录 -e 用户的过期时间，在此时间以前账号有效，过期后自动失效 -g 指定用户所属的组，指定的组必须已经存在 -m 如用户的起始home目录不存在，即建立 -M 不创建用户起始home目录 -D 显示或修改默认属性">
+<meta name="twitter:image" content="https://0bugs.xyz/2018/01/20/权限管理与密码破解/权限管理与密码破解/1.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Howard&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head></html>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Howard&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <!-- <a id="nav-search-btn" class="nav-icon" title="Search"></a> -->
+      </nav>
+      <!-- <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="0bugs.xyz">
+        </form>
+      </div> -->
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-权限管理与密码破解" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/20/权限管理与密码破解/" class="article-date">
+  <time datetime="2018-01-20T08:00:00.000Z" itemprop="datePublished">2018-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      权限管理与密码破解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Linux下权限管理"><a href="#Linux下权限管理" class="headerlink" title="Linux下权限管理"></a>Linux下权限管理</h3><h4 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h4><blockquote>
+<ul>
+<li>-d 用户的home目录</li>
+<li>-e 用户的过期时间，在此时间以前账号有效，过期后自动失效</li>
+<li>-g 指定用户所属的组，指定的组必须已经存在</li>
+<li>-m 如用户的起始home目录不存在，即建立</li>
+<li>-M 不创建用户起始home目录</li>
+<li>-D 显示或修改默认属性<a id="more"></a>
+</li>
+</ul>
+</blockquote>
+<h4 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h4><blockquote>
+<ul>
+<li>-r 将此用户起始目录及其中文件删除 </li>
+</ul>
+</blockquote>
+<h4 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h4><blockquote>
+<p>修改用户属性，参数同useradd</p>
+</blockquote>
+<h4 id="su"><a href="#su" class="headerlink" title="su"></a>su</h4><blockquote>
+<p>该命令用于切换用户<br>原则上禁止切换至root用户<br>因此可在su配置文件（在”/etc/pam.d/“目录下）的开头添加下面两行：<br><code>auth sufficient /lib/security/pam_rootok.so debug</code><br><code>auth required /lib/security/Pam_wheel.so group=wheel</code></p>
+</blockquote>
+<blockquote>
+<p>即只有wheel组的可切换为root</p>
+</blockquote>
+<p>groupadd blue<br>gpasswd -a -username groupname</p>
+<blockquote>
+<p>添加wheel用户组、将指定用户添加至指定用户组内</p>
+</blockquote>
+<h4 id="chgrp"><a href="#chgrp" class="headerlink" title="chgrp"></a>chgrp</h4><blockquote>
+<p>change group 即切换文件所属分组</p>
+</blockquote>
+<h4 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h4><blockquote>
+<p>change owner 修改文件所有者</p>
+</blockquote>
+<h4 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h4><blockquote>
+<ul>
+<li>r： 4（读权限</li>
+<li>w： 2（写权限）</li>
+<li>x： 1（执行权限）</li>
+</ul>
+</blockquote>
+<p>使用数字更改权限</p>
+<blockquote>
+<p>chmod xyz file/dir</p>
+</blockquote>
+<p>使用字符更改权限</p>
+<blockquote>
+<p>chmod u=wrx,go=rx file/dir<br>chmod a+x file/dir</p>
+</blockquote>
+<h4 id="usermod-1"><a href="#usermod-1" class="headerlink" title="usermod"></a>usermod</h4><blockquote>
+<p>修改账户的信息</p>
+<ul>
+<li>-L 锁定账户</li>
+<li>-U 解锁账户密码</li>
+</ul>
+</blockquote>
+<h4 id="chattr"><a href="#chattr" class="headerlink" title="chattr"></a>chattr</h4><blockquote>
+<p>用于修改文件属性</p>
+</blockquote>
+<p> +i</p>
+<blockquote>
+<p>使文件只读、不可任意更改等</p>
+</blockquote>
+<p>+a</p>
+<blockquote>
+<p>使文件只可追加不可删除，适用于各类日志文件    </p>
+</blockquote>
+<h3 id="Win下权限管理"><a href="#Win下权限管理" class="headerlink" title="Win下权限管理"></a>Win下权限管理</h3><h4 id="安全标识符SID"><a href="#安全标识符SID" class="headerlink" title="安全标识符SID"></a>安全标识符SID</h4><blockquote>
+<p>SID是一个具有惟一性、绝对不会重复产生的数值,用来标识操作系统中的安全主体或安全组</p>
+</blockquote>
+<h4 id="四项基本原则："><a href="#四项基本原则：" class="headerlink" title="四项基本原则："></a>四项基本原则：</h4><ul>
+<li>拒绝优先原则</li>
+<li>权限最小化原则</li>
+<li>权限继承原则</li>
+<li>累加原则</li>
+</ul>
+<h4 id="磁盘配额"><a href="#磁盘配额" class="headerlink" title="磁盘配额"></a>磁盘配额</h4><blockquote>
+<p>磁盘配额可以跟踪及控制磁盘空间的使用情况。包含磁盘配额限制和磁盘配额警告级别两个参数，前者触发报警阻止，后者触发记录。</p>
+</blockquote>
+<h3 id="Linux单用户模式修改root密码"><a href="#Linux单用户模式修改root密码" class="headerlink" title="Linux单用户模式修改root密码"></a>Linux单用户模式修改root密码</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理:"></a>原理:</h4><blockquote>
+<p>当Linux启动级别设置为1时，系统进入单用户模式在此模式下，不会启动任何服务，也无需输入root密码，甚至可以直接修改root密码。此方法常在忘记root密码时使用，但当物理机可被他人操控时，则有很大的安全隐患。但好在我们可以对进入单用户模式进行一定的限制，在进入前让用户输入密码来确保安全性。(计算机启动流程可以参考阮一峰老师的两篇文章: <a href="http://www.ruanyifeng.com/blog/2013/02/booting.html" target="_blank" rel="noopener">计算机是如何启动的</a> 、<a href="http://www.ruanyifeng.com/blog/2013/08/linux_boot_process.html" target="_blank" rel="noopener">Linux 的启动流程</a> )</p>
+</blockquote>
+<h4 id="1、进入操作系统配置引导界面并进入编辑页面"><a href="#1、进入操作系统配置引导界面并进入编辑页面" class="headerlink" title="1、进入操作系统配置引导界面并进入编辑页面"></a>1、进入操作系统配置引导界面并进入编辑页面</h4><p> <img src="权限管理与密码破解/1.jpg" alt=""><br>输入回车进入高级选项<br>找到Recovery mode选中<br><img src="./权限管理与密码破解/4.jpg" alt=""><br>根据下面的提示可知，输入<code>e</code>可以对配置进行编辑</p>
+<h4 id="2、找到类似Linux-boot-vmlinuz所在行"><a href="#2、找到类似Linux-boot-vmlinuz所在行" class="headerlink" title="2、找到类似Linux /boot/vmlinuz所在行"></a>2、找到类似Linux /boot/vmlinuz所在行</h4><p>将<code>ro single</code>改成<code>rw single</code>,并在最后添加<code>inti=/bin/bash</code><br><img src="./权限管理与密码破解/2.jpg" alt=""><br>这样我们就可以告诉系统我们需要以单用户的模式登陆了<br>然后 按键盘 <code>ctrl+x</code> 启动</p>
+<blockquote>
+<p>对于一些版本的OS（如redhat、centos）来说，编辑grub，在后面加上<code>single</code>即可进入单用户模式。但对于此处用来做示范的kali以及Ubuntu等此种方法无效。前者在进入编辑界面后，在选项中会明显的显示出对内核编辑选项，按照下方提示，输入<code>e</code> 并在最后添加<code>single</code>或者<code>1</code>即可。</p>
+</blockquote>
+<h4 id="3、使用passwd修改root密码"><a href="#3、使用passwd修改root密码" class="headerlink" title="3、使用passwd修改root密码"></a>3、使用passwd修改root密码</h4><p><img src="./权限管理与密码破解/3.jpg" alt=""></p>
+<p>之后我们使用<code>exit</code>命令退出单用户模式，然后重启正常进入多用户模式即可~</p>
+<h4 id="4、为单用户模式添加密码保护"><a href="#4、为单用户模式添加密码保护" class="headerlink" title="4、为单用户模式添加密码保护"></a>4、为单用户模式添加密码保护</h4><blockquote>
+<p>注意此处redhat系和debian系也略有不同</p>
+</blockquote>
+<h5 id="debian"><a href="#debian" class="headerlink" title="debian"></a>debian</h5><ul>
+<li><p>使用grub-mkpasswd-pbkdf2生成加密密码<br><img src="./权限管理与密码破解/5.jpg" alt=""></p>
+<blockquote>
+<p>在这个地方我竟然把连字符输成了下划线……找不到该命令，困惑了好久…………</p>
+</blockquote>
+</li>
+<li><p>在/etc/grub.d/40_custom末尾加入以下代码来对grub进行加密：</p>
+</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set superusers=<span class="string">"root"</span>                 </span><br><span class="line">password_pbkdf2  root  grub.pbkdf2.sha512.<span class="number">10000</span>.E944BC7C234B86C75D7CEE3D7D7753F35352F99E45E461F3BD12768F3D9525B84A62E62632EFDD0419425E3BCCD50279D9474A8D76DAF73A76079F8E5768152E.<span class="number">66369847376</span>BB3A56C5D21668A343E429A84E13D816DFAA3BC37B9F963C51805DB896F8155B6030455E8D32443FBDEFF936D8795F0BE891075A223B1B0F9AFCE <span class="comment">#后面一串密文为上面生成的密码</span></span><br></pre></td></tr></table></figure>
+<p><img src="./权限管理与密码破解/6.jpg" alt=""></p>
+<ul>
+<li><code>update-grub</code>命令进行更新</li>
+</ul>
+<h5 id="redhat"><a href="#redhat" class="headerlink" title="redhat"></a>redhat</h5><ul>
+<li><p>使用grub-md5-crypt 生成加密密码</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@feng~]<span class="comment"># grub-md5-crypt </span></span><br><span class="line">		Password: </span><br><span class="line">		Retype password: </span><br><span class="line">		<span class="variable">$1</span><span class="variable">$UGA2B1</span><span class="variable">$DriIdrVTEgVg95fHHX4H</span>./</span><br><span class="line">[root@feng~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 /boot/grub/grub.conf 启动配置中加入以下代码来对grub进行加密：<br><code>password --md5 $1$6H92B1$PzoPV63kTMk4uEhZQTAZ//</code></p>
+</li>
+</ul>
+<p>最后重启看一下效果：</p>
+<p><img src="./权限管理与密码破解/7.jpg" alt=""></p>
+<p>现在进入高级选项需要输入用户名和密码了！起到了保护的作用。但这个密码如果忘记的话，就真的没有补救的方法了……</p>
+<blockquote>
+<p>参考链接 <a href="http://www.cnblogs.com/xiaoluo501395377/archive/2013/05/19/3087664.html" target="_blank" rel="noopener">Linux学习之CentOS(二十二)–单用户模式下修改Root用户的密码</a></p>
+</blockquote>
+<h3 id="Windows利用空会话IPC共享实现远程控制"><a href="#Windows利用空会话IPC共享实现远程控制" class="headerlink" title="Windows利用空会话IPC共享实现远程控制"></a>Windows利用空会话IPC共享实现远程控制</h3><h4 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h4><blockquote>
+<p>当用户使用用户名和密码(可以访问系统资源的登陆帐户)远程登陆到计算机时就创建了一个远程会话，这是通过服务器消息模块(SMB)和Windows Server服务来实现的，当提供正确登陆信息时这些连接都是完全合理的。</p>
+</blockquote>
+<blockquote>
+<p>当用户没有使用用户名或者密码来与windows系统建立连接时就会出现空会话，这种类型的连接不能进行任何典型的windows共享，但是可以进行进程间通信(IPC)管理共享。IPC共享，是windows进程(通过SYSTEM用户名)来与网络其他进程进行通信的，IPC共享是SMB协议专用的。</p>
+</blockquote>
+<blockquote>
+<p>没有登陆凭证使用IPC共享是专供程序间通信使用的，但这并不是说用户不能通过IPC连接代替连接到计算机。这种方式不允许对计算机的无限制访问，但广泛枚举可能会帮助攻击者发起攻击。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://0bugs.xyz/2018/01/20/权限管理与密码破解/" data-id="cjr0rtkd5000dwuoisss5zpbk" class="article-share-link" data-share="baidu" data-title="权限管理与密码破解">Share</a>
+      
+
+      
+        <a href="https://0bugs.xyz/2018/01/20/权限管理与密码破解/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/权限管理/">权限管理</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/16/phpToOracle/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PHP使用PDO连接Oracle
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/18/网络踩点/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">网络踩点、路由信息探测</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2018/01/20/权限管理与密码破解/" data-title="权限管理与密码破解" data-url="https://0bugs.xyz/2018/01/20/权限管理与密码破解/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IC/">IC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web安全/">Web安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全/">信息安全</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密算法/">加密算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/权限管理/">权限管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/硬件/">硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络踩点/">网络踩点</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IC/" style="font-size: 10px;">IC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Web安全/" style="font-size: 10px;">Web安全</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/信息安全/" style="font-size: 20px;">信息安全</a> <a href="/tags/加密算法/" style="font-size: 10px;">加密算法</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/权限管理/" style="font-size: 10px;">权限管理</a> <a href="/tags/硬件/" style="font-size: 10px;">硬件</a> <a href="/tags/网络踩点/" style="font-size: 10px;">网络踩点</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/17/天朝备案制/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/17/linux折腾记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/16/phpToOracle/">PHP使用PDO连接Oracle</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/20/权限管理与密码破解/">权限管理与密码破解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/18/网络踩点/">网络踩点、路由信息探测</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://www.sky31.com" target="_blank">Sun-e Studio</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Howard Feng<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      <!-- Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a> -->
+       <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备17001505号-1</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
