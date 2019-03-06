@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.0bug.xyz/"/>
-  <updated>2018-10-17T16:48:32.000Z</updated>
+  <updated>2019-03-06T07:40:28.778Z</updated>
   <id>https://blog.0bug.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一种同步系统设计方案</title>
+    <link href="https://blog.0bug.xyz/2019/03/06/%E4%B8%80%E7%A7%8D%E5%90%8C%E6%AD%A5%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88/"/>
+    <id>https://blog.0bug.xyz/2019/03/06/一种同步系统设计方案/</id>
+    <published>2019-03-06T07:00:00.000Z</published>
+    <updated>2019-03-06T07:40:28.778Z</updated>
+    
+    <content type="html"><![CDATA[<p>对于广告投放系统，有如下模块：</p><ul><li>落地页：用户点击广告位进入的广告展示页面。</li><li>蜂巢系统：用户提交的数据进行存储的模块。</li><li>CRM系统：客户关系系统，用于后台业务人员联系、分析用户的模块。</li><li><p>同步系统：蜂巢系统与CRM系统进行同步数据的模块。</p><a id="more"></a></li></ul><p>有如下业务逻辑：</p><p>用户点击广告进入广告落地页，用户在落地页填写个人信息后点击提交按钮，用户信息和广告唯一APPKEY被发送至蜂巢系统，蜂巢系统将用户数据进行存储。此后，同步系统将蜂巢系统获取的用户数据同步至到CRM系统。现需要设计一个完善的同步系统。同时，CRM系统有多种，要进行多系统适配。</p><h2 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h2><p>蜂巢系统与CRM系统数据的同步</p><h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><ul><li><p>高可用性</p></li><li><p>一致性</p></li><li><p>可恢复性</p></li></ul><h2 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h2><p>考虑到蜂巢系统对于可用性的要求可能较高，CRM系统对一致性要求较低，因此对于CAP理论，优先满足可用性(A)和分区容错性(P)，允许最终一致性。此种策略虽然会影响CRM系统使用体验，但没达到造成用户流失的程度。</p><p>因此同步系统采用轮询机制。即同步系统根据策略定时向蜂巢系统进行数据拉取。</p><p>同时以备数据丢失，将同步操作唯一ID以及同步数据存入Redis。</p><p>##　数据同步流程</p><ol><li>轮询服务器按照轮询策略发出请求，创建同步操作唯一ID</li><li>增量查询服务对蜂巢系统数据库进行查询，按照查询方案确定需要更新的数据</li><li>将同步操作唯一ID和同步数据存入Redis</li><li>将获取的更新数据发送给数据分发服务器</li><li>数据分发服务器将数据发送至主线队列，数据等待被处理</li><li>数据处理层根据队列中已经注册的数据同步请求，按顺序处理更新数据</li><li>数据处理层将更新数据更新至CRM系统中</li><li>记录操作日志</li></ol><p><img src="https://blog-1252921857.cos.ap-chengdu.myqcloud.com/未命名文件.png" alt=""></p><h2 id="增量查询规则"><a href="#增量查询规则" class="headerlink" title="增量查询规则"></a>增量查询规则</h2><p>为蜂巢中的数据表添加<code>UpdateTime</code>字段。即对于蜂巢系统中，新增加一条记录时或者修改一条记录时，<code>UpdateTime</code>字段都会更新为当前的时间戳。</p><p>则对于<code>Insert</code>、<code>Update</code>操作的数据，增量查询服务器策略如下：</p><ul><li>初次同步时，记录一下最大的 <code>UpdateTime</code> 时间戳，保存到一个记录表中。</li><li>后续同步时，用记录表中的时间戳与蜂巢源表里的 <code>UpdateTime</code> 相比较，比时间戳大的说明是新添加的或者修改的数据。</li><li>当整个同步成功之后，更新最大的 <code>UpdateTime</code> 到记录表中。</li></ul><p>对于蜂巢中的删除操作，则可以在数据表中添加<code>IsDelete</code>字段，执行删除时，将<code>IsDelete</code>字段设置为1，同时更新<code>UpdateTime</code>，此时就相当于简单的Update数据。</p><h2 id="队列处理"><a href="#队列处理" class="headerlink" title="队列处理"></a>队列处理</h2><p>对于数据处理的性能问题，可以通过消息队列来一组一组处理订单数据，数据处理层前的等候队列划分为如下三层：主线队列、重试队列、死亡队列，处理流程为：</p><ol><li>把数据先放入主线队列，如果放置失败，将当前消息记录至恢复日志 </li><li>监听主线队列，获取队列数据并进行处理，处理失败放入重试队列</li><li>监听重试队列，过几秒获取队列数据并重新进行处理，若三次处理失败则放入死亡队列，不再进行重试，记录恢复日志，等待人工处理</li></ol><h2 id="恢复和监控"><a href="#恢复和监控" class="headerlink" title="恢复和监控"></a>恢复和监控</h2><h3 id="日志源"><a href="#日志源" class="headerlink" title="日志源"></a>日志源</h3><ul><li>恢复日志</li><li>其他异常情况下的日志记录，如网络无法连接、服务不可用等</li></ul><h3 id="数据恢复"><a href="#数据恢复" class="headerlink" title="数据恢复"></a>数据恢复</h3><ul><li>对于恢复日志记录的数据进行人工操作</li><li>对于其他异常造成的数据丢失，使用Redis内存储的数据进行恢复</li></ul><h3 id="应用监控"><a href="#应用监控" class="headerlink" title="应用监控"></a>应用监控</h3><p>大概需要下面几个监控的指标：</p><ul><li>监控队列个数以及每个队列的状态</li><li>任务错误数</li><li>目标CRM系统负载</li><li>Redis监控</li></ul><h3 id="操作日志数据结构"><a href="#操作日志数据结构" class="headerlink" title="操作日志数据结构"></a>操作日志数据结构</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"id"</span>: <span class="number">111</span>,</span><br><span class="line"><span class="attr">"data"</span>: [<span class="string">"insert into customer (APPKEY,uid,phone,UpdateTime) values ('ASDAD',12345,15888888888,65711321800)"</span>],</span><br><span class="line"><span class="attr">"start_at"</span>: <span class="number">65711321800</span>,</span><br><span class="line">    <span class="attr">"end_at"</span>: <span class="number">65711321801</span>,</span><br><span class="line"><span class="attr">"result"</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><table><thead><tr><th>参数名</th><th>说明</th></tr></thead><tbody><tr><td>id</td><td>同步操作唯一ID</td></tr><tr><td>data</td><td>同步数据</td></tr><tr><td>start_at</td><td>操作开始时间</td></tr><tr><td>end_at</td><td>操作完成时间</td></tr><tr><td>result</td><td>操作结果</td></tr></tbody></table><h3 id="UML说明"><a href="#UML说明" class="headerlink" title="UML说明"></a>UML说明</h3><p><img src="https://blog-1252921857.cos.ap-chengdu.myqcloud.com/CRMAdapter.png" alt=""></p><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><table><thead><tr><th>类名</th><th>说明</th></tr></thead><tbody><tr><td>Poll</td><td>轮询服务器</td></tr><tr><td>Increment</td><td>增量查询服务器</td></tr><tr><td>DistributerCenter</td><td>数据分发中心</td></tr><tr><td>DataHandler</td><td>数据处理层</td></tr><tr><td>Queue</td><td>队列抽象类</td></tr><tr><td>MainQueue、RetryQuene、DeadQueue</td><td>主线队列、重试队列、死亡队列</td></tr><tr><td>CRMAdaper</td><td>CRM适配器接口</td></tr><tr><td>FirstCRMAdaper、SecendCRMAdapter</td><td>两种类型的CRM系统实现类</td></tr><tr><td>HTTP</td><td>请求类</td></tr></tbody></table><p><strong>图中蓝色线除抽象队列类和三个子类之间的代表实现关系外，其余代表依赖关系</strong></p><p><strong>白线代表泛化关系</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对于广告投放系统，有如下模块：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;落地页：用户点击广告位进入的广告展示页面。&lt;/li&gt;
+&lt;li&gt;蜂巢系统：用户提交的数据进行存储的模块。&lt;/li&gt;
+&lt;li&gt;CRM系统：客户关系系统，用于后台业务人员联系、分析用户的模块。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;同步系统：蜂巢系统与CRM系统进行同步数据的模块。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="系统设计" scheme="https://blog.0bug.xyz/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP使用PDO连接Oracle</title>
