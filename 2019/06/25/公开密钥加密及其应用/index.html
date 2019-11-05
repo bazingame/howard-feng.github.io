@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>公开密钥加密及其应用 | howard博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="小组内部每周都会有人进行技术分享，这周leader安排到了我。想了很久给大家分享什么内容，但觉得都不怎么合适，感觉这些技术他们都已有所了解，且比我掌握的可能更深刻一些。思来想去最后我选了一个大家接触比较少且自己最近在这方面的看的又比较多的技术内容——公开密钥加密。这里将分享的内容整理为一篇文章记录在此。">
+<meta name="keywords" content="加密算法,信息安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="公开密钥加密及其应用">
+<meta property="og:url" content="https://blog.0bug.xyz/2019/06/25/公开密钥加密及其应用/index.html">
+<meta property="og:site_name" content="howard博客">
+<meta property="og:description" content="小组内部每周都会有人进行技术分享，这周leader安排到了我。想了很久给大家分享什么内容，但觉得都不怎么合适，感觉这些技术他们都已有所了解，且比我掌握的可能更深刻一些。思来想去最后我选了一个大家接触比较少且自己最近在这方面的看的又比较多的技术内容——公开密钥加密。这里将分享的内容整理为一篇文章记录在此。">
+<meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2019-07-07T10:22:16.062Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="公开密钥加密及其应用">
+<meta name="twitter:description" content="小组内部每周都会有人进行技术分享，这周leader安排到了我。想了很久给大家分享什么内容，但觉得都不怎么合适，感觉这些技术他们都已有所了解，且比我掌握的可能更深刻一些。思来想去最后我选了一个大家接触比较少且自己最近在这方面的看的又比较多的技术内容——公开密钥加密。这里将分享的内容整理为一篇文章记录在此。">
+  
+    <link rel="alternative" href="/atom.xml" title="howard博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head></html>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">howard博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/howard-feng/">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <!-- <a id="nav-search-btn" class="nav-icon" title="Search"></a> -->
+      </nav>
+      <!-- <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="blog.0bug.xyz">
+        </form>
+      </div> -->
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-公开密钥加密及其应用" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/25/公开密钥加密及其应用/" class="article-date">
+  <time datetime="2019-06-25T07:00:00.000Z" itemprop="datePublished">2019-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      公开密钥加密及其应用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>小组内部每周都会有人进行技术分享，这周leader安排到了我。想了很久给大家分享什么内容，但觉得都不怎么合适，感觉这些技术他们都已有所了解，且比我掌握的可能更深刻一些。思来想去最后我选了一个大家接触比较少且自己最近在这方面的看的又比较多的技术内容——公开密钥加密。这里将分享的内容整理为一篇文章记录在此。</p>
+</blockquote>
+<a id="more"></a>
+<p>内容提要如下：</p>
+<ul>
+<li>基本的公开密钥加密方案</li>
+<li>应用</li>
+<li>真实世界的安全协议</li>
+</ul>
+<h2 id="基本的公开密钥加密方案"><a href="#基本的公开密钥加密方案" class="headerlink" title="基本的公开密钥加密方案"></a>基本的公开密钥加密方案</h2><p>首先我们知道目前密文加密主要有两种方式，一种是<code>对称加密</code>，一种是<code>非对称加密</code>，也称<code>公开密钥加密</code>，其实从加密的<code>性能</code>和<code>加密方法多样性</code>的角度来看，对称加密要比公开密钥加密更为优秀，但是对称加密存在一个致命的问题：密钥分发的难题。对于在加密中最为重要的密钥来说，如果不可以保证它的安全性，那么整个加密方案也就没有存在的意义。而公开密钥加密利用一种称为<code>单向陷门函数</code>的方式，轻松解决了这个密钥分发的问题。</p>
+<p>通常我们在加密传输时，多数选择的方案是对称加密和公开密钥加密同时使用，首先使用公开密钥加密将密钥安全的传输给对方，然后双方再使用该密钥进行对称加密传输真正的密文。这个方案简单完美的同时保证了加密的高效性和密钥分发的安全性。</p>
+<h3 id="单向陷门函数"><a href="#单向陷门函数" class="headerlink" title="单向陷门函数"></a>单向陷门函数</h3><p>单向陷门函数是指具有<code>单向</code>和<code>陷门</code>两个特性的一类特殊函数。</p>
+<ul>
+<li><p>单向</p>
+<p>单向简单的可以说是函数在一个方向上易于计算而反方向却难于计算。比如生活中的水往低处流、破镜难重圆等，都是一个单向函数的体现。</p>
+</li>
+<li><p>陷门</p>
+<p>陷门是指一个可以对单向函数求逆的后门</p>
+<p>对于普通的单向函数来说，原则上其没有可能可以从输出逆向反推输入，但是这个后门的存在，使得我们可以反向推导。</p>
+<blockquote>
+<p>如：拆开表是一个很好的陷门单向函数的例子，我们将表拆成数百片小片非常容易，而把这些小片重新组装成能够工作的表则非常的困难，但我们如果通过秘密消息（表的装配指令），就可以很容易将表复原。这里的“表的装配指令”就是上述的陷门</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="背包加密算法"><a href="#背包加密算法" class="headerlink" title="背包加密算法"></a>背包加密算法</h3><p>背包加密是最早被提出来的公钥加密体系之一，但是现在已经证实其不安全</p>
+<p>背包加密算法基于的是<code>子集和</code>问题，可简单描述为下：</p>
+<blockquote>
+<p>有 W0,W1,W2…Wn-1</p>
+<p>要求找到 </p>
+</blockquote>
+<ul>
+<li>生成超递增背包</li>
+<li>超递增闭包转换为常规背包</li>
+<li>常规背包为公钥</li>
+<li>超递增背包和转换因子为私钥</li>
+</ul>
+<p>例子</p>
+<p>  生成的超递增背包：2，3，7，14</p>
+<p>  选取 乘数m 和模数n(大于所有数的和)，m和n互质==&gt; m=11 n=27</p>
+<p>  计算常规背包为 22，6，23，19</p>
+<p>  明文： 1001</p>
+<p>  则密文 C：22+19=41</p>
+<hr>
+<p>私钥为超递增背包 2，3，7，14 和 m-1 mod n = 5</p>
+<p>解密 ：C <em> m-1 mod n = 41 </em> 5 mod 27 = 16</p>
+<p>得 16 = 14 + 2 </p>
+<p>明文 =&gt; 1001</p>
+<h3 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h3><p>基于：大数的因式分解</p>
+<p>例子：</p>
+<p>大素数 p=3、q=11</p>
+<p>N = p*q = 33</p>
+<p>e 与 (p-1)*(q-1)=20 互素  e选择3</p>
+<p>公钥 (N,e) = (33,3)</p>
+<p>私钥d 为 e-1 mod (p-1)*(q-1) = 3 ^-1 mod 20 =7</p>
+<p>设 明文 M = 15</p>
+<p>则密文 C = M ^e mod N = 15 ^ 3 mod 33 = 9</p>
+<p>解密： M  = C ^d mod N = 9 ^7 mod 33 = 15</p>
+<hr>
+<p>保障不被破解的关键：N无法被分解</p>
+<p>即无法获取p、q的值，则不可以获取私钥d的值</p>
+<h3 id="Diffie-Hellman密钥交换算法"><a href="#Diffie-Hellman密钥交换算法" class="headerlink" title="Diffie-Hellman密钥交换算法"></a>Diffie-Hellman密钥交换算法</h3><blockquote>
+<p>用于共享对称密钥</p>
+</blockquote>
+<p>基于离散对数问题</p>
+<p>给定g， x=g^k<br>求k, k = logg(x)</p>
+<p>给定 g、p、g^k mod p</p>
+<p>求k</p>
+<p>很难</p>
+<hr>
+<p>A 选择a 计算得到  g^a mod p</p>
+<p>B 选择b 计算得到  g^b mod p</p>
+<p>互换</p>
+<p>A得到   g^ab mod p</p>
+<p>B得到   g^ab mod p</p>
+<h3 id="椭圆曲线加密（ECC）"><a href="#椭圆曲线加密（ECC）" class="headerlink" title="椭圆曲线加密（ECC）"></a>椭圆曲线加密（ECC）</h3><p>优势：获取同样的加密级别，需要的二机制位少</p>
+<p>劣势：计算复杂</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="加密通信"><a href="#加密通信" class="headerlink" title="加密通信"></a>加密通信</h3><h3 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h3><h2 id="真实世界的安全协议"><a href="#真实世界的安全协议" class="headerlink" title="真实世界的安全协议"></a>真实世界的安全协议</h2><h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><h3 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h3><h3 id="IPSec"><a href="#IPSec" class="headerlink" title="IPSec"></a>IPSec</h3>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://blog.0bug.xyz/2019/06/25/公开密钥加密及其应用/" data-id="cjxst09wh000b2yoitr3mthvw" class="article-share-link">Share</a>
+      
+
+      
+        <a href="https://blog.0bug.xyz/2019/06/25/公开密钥加密及其应用/#disqus_thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息安全/">信息安全</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密算法/">加密算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/06/一种同步系统设计方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">一种同步系统设计方案</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IC/">IC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web安全/">Web安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全/">信息安全</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密算法/">加密算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/权限管理/">权限管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/硬件/">硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统设计/">系统设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络踩点/">网络踩点</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/25/公开密钥加密及其应用/">公开密钥加密及其应用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/06/一种同步系统设计方案/">一种同步系统设计方案</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/16/phpToOracle/">PHP使用PDO连接Oracle</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/20/权限管理与密码破解/">权限管理与密码破解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/18/网络踩点/">网络踩点、路由信息探测</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://www.sky31.com" target="_blank">Sun-e Studio</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Howard Feng<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      <!-- Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a> -->
+       <a href="http://www.beian.miit.gov.cn" target="_blank">湘ICP备17001505号-2</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/howard-feng/" class="mobile-nav-link">Github</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"></a>
+</div>
+
+<!-- totop end -->
+
+<script>
+  var disqus_shortname = 'howard-feng';
+  
+  var disqus_url = 'https://blog.0bug.xyz/2019/06/25/公开密钥加密及其应用/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+</div>
+</body>
+</html>

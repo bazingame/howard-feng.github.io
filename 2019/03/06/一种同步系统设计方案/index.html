@@ -4,25 +4,25 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>一种同步系统设计方案 | Howard&#39;s Blog</title>
+  <title>一种同步系统设计方案 | howard博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="对于广告投放系统，有如下模块：  落地页：用户点击广告位进入的广告展示页面。 蜂巢系统：用户提交的数据进行存储的模块。 CRM系统：客户关系系统，用于后台业务人员联系、分析用户的模块。 同步系统：蜂巢系统与CRM系统进行同步数据的模块。">
 <meta name="keywords" content="系统设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一种同步系统设计方案">
 <meta property="og:url" content="https://blog.0bug.xyz/2019/03/06/一种同步系统设计方案/index.html">
-<meta property="og:site_name" content="Howard&#39;s Blog">
+<meta property="og:site_name" content="howard博客">
 <meta property="og:description" content="对于广告投放系统，有如下模块：  落地页：用户点击广告位进入的广告展示页面。 蜂巢系统：用户提交的数据进行存储的模块。 CRM系统：客户关系系统，用于后台业务人员联系、分析用户的模块。 同步系统：蜂巢系统与CRM系统进行同步数据的模块。">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="https://blog-1252921857.cos.ap-chengdu.myqcloud.com/未命名文件.png">
 <meta property="og:image" content="https://blog-1252921857.cos.ap-chengdu.myqcloud.com/CRMAdapter.png">
-<meta property="og:updated_time" content="2019-03-06T07:40:28.778Z">
+<meta property="og:updated_time" content="2019-07-07T07:43:53.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一种同步系统设计方案">
 <meta name="twitter:description" content="对于广告投放系统，有如下模块：  落地页：用户点击广告位进入的广告展示页面。 蜂巢系统：用户提交的数据进行存储的模块。 CRM系统：客户关系系统，用于后台业务人员联系、分析用户的模块。 同步系统：蜂巢系统与CRM系统进行同步数据的模块。">
 <meta name="twitter:image" content="https://blog-1252921857.cos.ap-chengdu.myqcloud.com/未命名文件.png">
   
-    <link rel="alternative" href="/atom.xml" title="Howard&#39;s Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="howard博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -39,7 +39,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Howard&#39;s Blog</a>
+        <a href="/" id="logo">howard博客</a>
       </h1>
       
     </div>
@@ -119,8 +119,7 @@
 <h2 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h2><p>考虑到蜂巢系统对于可用性的要求可能较高，CRM系统对一致性要求较低，因此对于CAP理论，优先满足可用性(A)和分区容错性(P)，允许最终一致性。此种策略虽然会影响CRM系统使用体验，但没达到造成用户流失的程度。</p>
 <p>因此同步系统采用轮询机制。即同步系统根据策略定时向蜂巢系统进行数据拉取。</p>
 <p>同时以备数据丢失，将同步操作唯一ID以及同步数据存入Redis。</p>
-<p>##　数据同步流程</p>
-<ol>
+<h2 id="数据同步流程"><a href="#数据同步流程" class="headerlink" title="数据同步流程"></a>数据同步流程</h2><ol>
 <li>轮询服务器按照轮询策略发出请求，创建同步操作唯一ID</li>
 <li>增量查询服务对蜂巢系统数据库进行查询，按照查询方案确定需要更新的数据</li>
 <li>将同步操作唯一ID和同步数据存入Redis</li>
@@ -245,7 +244,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://blog.0bug.xyz/2019/03/06/一种同步系统设计方案/" data-id="cjswwbpny000b51oise13azmn" class="article-share-link">Share</a>
+        <a data-url="https://blog.0bug.xyz/2019/03/06/一种同步系统设计方案/" data-id="cjxst09wf00082yoi522qx2mk" class="article-share-link">Share</a>
       
 
       
@@ -260,6 +259,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/06/25/公开密钥加密及其应用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          公开密钥加密及其应用
+        
+      </div>
+    </a>
   
   
     <a href="/2018/10/16/phpToOracle/" id="article-nav-older" class="article-nav-link-wrap">
@@ -288,7 +296,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IC/">IC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web安全/">Web安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全/">信息安全</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密算法/">加密算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/权限管理/">权限管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/硬件/">硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统设计/">系统设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络踩点/">网络踩点</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IC/">IC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web安全/">Web安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全/">信息安全</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密算法/">加密算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/权限管理/">权限管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/硬件/">硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统设计/">系统设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络踩点/">网络踩点</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -297,7 +305,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -307,6 +315,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/25/公开密钥加密及其应用/">公开密钥加密及其应用</a>
+          </li>
         
           <li>
             <a href="/2019/03/06/一种同步系统设计方案/">一种同步系统设计方案</a>
@@ -322,10 +334,6 @@
         
           <li>
             <a href="/2018/01/18/网络踩点/">网络踩点、路由信息探测</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/17/Linux日志恢复/">Linux日志删除与恢复</a>
           </li>
         
       </ul>
@@ -359,7 +367,7 @@
       Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
       .
       <!-- Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a> -->
-       <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备17001505号-2</a>
+       <a href="http://www.beian.miit.gov.cn" target="_blank">湘ICP备17001505号-2</a>
     </div>
   </div>
 </footer>
